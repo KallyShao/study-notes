@@ -1,0 +1,1 @@
+define("b",[],function(){function e(){console.log("this is module b!")}return console.log("b"),{bFn:e}}),define("a",["b"],function(){function e(){console.log("this is module A!")}return console.log("a"),{y:e}}),require(["a","b"],function(e,t){e.y(),t.bFn()}),require.config({}),define("main",function(){});
