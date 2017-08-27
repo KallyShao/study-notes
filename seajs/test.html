@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script type="text/javascript" src="sea.js"></script>
+<script>
+seajs.use('js/test1.js', function(ex){ 
+//第一个参数为模块路径，第二个为加载成功后执行的回调函数
+//回调函数中的参数随便写，这个参数即为模块的对外接口exports
+	ex.name();
+	// name();
+	// function name(){
+	// 	console.log(999);
+	// }
+})
+
+</script>
+</head>
+
+<body>
+</body>
+</html>
