@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+    <style>
+li {
+    transition: 1s;
+}
+    </style>
+</head>
+<body>
+	<div id="div1">
+		<ul id="ul">
+            <li><a href="javascript:;">隐藏1111</a></li>
+            <li><a href="javascript:;">隐藏2222</a></li>
+			<li><a href="javascript:;">隐藏3333</a></li>
+			<li><a href="javascript:;">隐藏4444</a></li>
+		</ul>
+		
+	</div>
+<script type="text/javascript">
+var odiv1 = document.getElementById('div1');
+var oul = document.getElementById('ul');
+var lis = oul.getElementsByTagName('li');
+// console.log(lis[0].nextSibling.nodeName);
+// console.log(lis[0].nextElementSibling.nodeName);
+// console.log(lis[0].siblings.length);
+console.log(oul.firstChild);
+var as = oul.getElementsByTagName('a');
+for(var i=0; i<as.length; i++){
+    as[i].onclick = function(){
+        console.log(this.parentNode.nodeName);
+        this.parentNode.style.display = "none";
+    }
+}
+</script>
+</body>
+</html>

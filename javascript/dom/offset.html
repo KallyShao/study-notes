@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>offset</title>
+    <style>
+#div1{
+    width: 500px;
+    height: 500px;
+    position: relative;
+    left: 100px;
+    background: #000;
+}
+#div2{
+    width: 300px;
+    height: 300px;
+    margin-left: 100px;
+    position: absolute;
+    left: 20px;
+    top: 0;
+    background: #0f0;
+    border: 10px solid #fff;
+}
+#div3{
+    width: 100px;
+    height: 100px;
+    /* position: absolute; */
+    left: 50px;
+    top: 0;
+    background: #ff0;
+    border: 10px solid #000;
+}
+
+    </style>
+</head>
+<body>
+<div  id="div1">
+    <div id="div2">
+        <div id="div3"></div>
+    </div>
+</div>
+<script>
+odiv1 = document.getElementById("div1");
+odiv2 = document.getElementById("div2");
+odiv3 = document.getElementById("div3");
+
+// function aa(){ //方法一
+//     var elem = odiv3;
+//     var ol = 0;
+//     while(elem){
+//         ol += elem.offsetLeft;
+//         elem = elem.parentNode;
+//         if(elem.nodeName == "BODY"){
+//             break;
+//         }
+//     }
+//     console.log(ol);
+// }
+
+//  function aa(){ //方法二
+//      var elem = odiv3;
+//      var ol = 0;
+//      while(elem){
+//          ol += elem.offsetLeft;
+//          elem = elem.offsetParent; //到body之后就停止，因为body相当于最后一个有定位的元素
+//      }
+//      console.log(ol);
+//  }
+
+
+  function aa(){ //方法三：如果有边框
+      var elem = odiv3;
+      var ol = 0;
+      while(elem){
+          ol += elem.offsetLeft + parseInt(getComputedStyle(elem).borderLeftWidth);
+          elem = elem.offsetParent; 
+ }
+      console.log(ol);
+  }
+// aa();
+console.log(odiv3.getBoundingClientRect().left);
+</script>
+</body>
+</html>
