@@ -1,0 +1,79 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>my ajax</title>
+<script src="newAjax.js"></script>
+</head>
+
+<body>
+
+<input type="button" value="提交" id="btn" />
+<ul id="news-list"></ul>
+<script>
+	var oBtn = document.getElementById('btn');
+	var oUl = document.getElementById('news-list');
+	
+	// var s2 = '[33, 12, 3]'
+	// var a1 = JSON.parse(s2);
+	// console.log(a1 instanceof Array);	//true. 
+
+	oBtn.onclick = function(){
+		newAjax('data.php', function(str){	//这个函数的参数是newAjax()中的函数带过来的
+			var data = JSON.parse(str);
+			var html = '';
+			for (var i=0; i<data.length; i++) {
+				html += '<li><a href="">'+data[i].title+'</a> [<span>'+data[i].date+'</span>]</li>';
+			}
+			oUl.innerHTML = html;
+
+		}, function(status){
+			console.log(status);
+		})
+
+		// if(window.XMLHttpRequest){	//第一步：创建ajax对象
+		// 	var oAjax = new XMLHttpRequest();
+		// }else{
+		// 	var oAjax = new ActiveXObject("Microsoft.XMLHTTP");	//兼容ie6
+		// }
+		// //这里是get方式
+		// oAjax.open("GET", 'data.php', true);
+		// oAjax.send();
+
+		// oAjax.onreadystatechange = function(){
+		// 	if(oAjax.readyState == 4){	//请求完成
+		// 		if(oAjax.status == 200){	//请求成功
+		// 			var arr = JSON.parse(oAjax.responseText);
+		// 			console.log(typeof arr);
+		// 			console.log(arr);
+		// 			for(var key in arr){
+		// 				var oLi = document.createElement('li');
+		// 				oLi.innerHTML = arr[key].title + ' ' + arr[key].date;
+		// 				oUl.appendChild(oLi);
+		// 			}
+
+		// 		}else{
+		// 			console.log(oAjax.status);
+		// 		}
+		// 	}
+		// }
+	}
+
+	setInterval(function(){
+		newAjax('data.php', function(str){	//这个函数的参数是newAjax()中的函数带过来的
+			var data = JSON.parse(str);
+			var html = '';
+			for (var i=0; i<data.length; i++) {
+				html += '<li><a href="">'+data[i].title+'</a> [<span>'+data[i].date+'</span>]</li>';
+			}
+			oUl.innerHTML = html;
+
+		}, function(status){
+			console.log(status);
+		});
+	}, 1000);	//无需刷新页面，每秒自动更新一次新闻列表
+	
+	
+</script>
+</body>
+</html>

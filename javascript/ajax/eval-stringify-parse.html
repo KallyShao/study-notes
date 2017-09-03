@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>eval, stringify and parse demo</title>
+<script src="ajax.js"></script>
+</head>
+
+<body>
+
+<script>
+//  var json = '{"name": "kally", "age": 18}';
+//  var info = JSON.parse(json);
+//  console.log(info);  //object. {name: "kally", age: 18} 注意字符串中的json的k值必须用""包起来，不能使用''，否则会报错
+//  var info1 = eval('(' + json + ')');
+//  console.log(info1); //与info的结果一致，但是在使用eval()转换json字符串时需要用()将json字符串先包起来
+
+// var a = 9;
+// var b = 10;
+// console.log(eval(a+b)); //19
+// eval(document.write(a+b)); //在页面中输出19
+
+var json = {"name": "kally", "age": 18};
+var str = JSON.stringify(json);
+console.log(str); //{"name": "kally", "age": 18}
+console.log(typeof str); //string
+</script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+    <style>
+
+    </style>
+</head>
+<body>
+	
+<script type="text/javascript">
+// var a = 10;
+// function aa(){
+// 	console.log(a);
+// }
+// function bb(){
+// 	var a = 20;
+// 	aa();	//这个函数在调用的时候并不是在bb()内部调用，而是回到前面找到函数aa(),在外面调用aa(),因此只能找到全局变量a=10
+// }
+// bb(); //10. 
+
+// var a = 10;
+
+// function bb(){
+// 	var a = 20;
+// 	function aa(){
+// 		console.log(a);
+// 	}
+// 	aa();
+// }
+// bb(); //20. 如果函数是在bb()里面调用的，就返回20
+
+// function aa(){
+// 	var a = b = 10;
+// }
+// aa();
+// console.log(a);
+// console.log(b);
+
+// var a = 10;
+// function aa(){
+// 	a = 20;
+// 	console.log(a);	//在执行这句时，会先找带有var定义的a，在函数内部没有找到满足条件的a，
+// 继续往外找，找到a之后再进入函数内部，但是a被a = 20覆盖，因此变成20
+// }
+// aa();	//20. 
+
+
+// var a = 10; 
+// function aa()
+// {
+// 	var a = 20;
+// 	console.log(a);	//这里直接在函数内部找到了带var的a,因此根本不会找到外面的var a = 10.
+// }
+// aa(); 	//20. 
+
+
+var a = 10;
+function aa(){
+	console.log(a);
+	var a = 20;
+}
+aa();
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>关于同步和异步</title>
+</head>
+
+<body>
+
+<input type="button" value="读取文件" />
+
+<script>
+var oBtn = document.getElementsByTagName('input')[0];
+oBtn.onclick = function(){
+	if(window.XMLHttpRequest){	//第一步：创建ajax对象
+		var oAjax = new XMLHttpRequest();
+	}else{
+		var oAjax = new ActiveXObject("Microsoft.XMLHTTP");	//兼容ie6
+	}
+	oAjax.open("GET", 'first-ajax.txt', false);
+	oAjax.send();
+	alert(oAjax.responseText);	
+	//如果是异步，这里会弹出空白；如果是同步，这里会弹出对应内容.
+	// 原因就是因为如果是异步，前面的代码不会阻碍后面代码的执行，也就是说前面send()还没有发送，后面alert()就执行了，那么请求到的内容肯定是空白；如果是同步，必须等前面的send()发送完成后才能执行后面的alert(),所以就能弹出所请求到的内容！
+	
+}
+</script>
+</body>
+</html>

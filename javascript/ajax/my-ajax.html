@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>my ajax</title>
+<script src="newAjax.js"></script>
+</head>
+
+<body>
+
+<input type="button" value="读取文件" />
+
+<script>
+var oBtn = document.getElementsByTagName('input')[0];
+oBtn.onclick = function(){
+	// var oAjax = new XMLHttpRequest();
+	// var oAjax = new ActiveXObject("Microsoft.XMLHTTP");
+	// alert(oAjax);
+
+	// if(window.XMLHttpRequest){	//第一步：创建ajax对象
+	// 	var oAjax = new XMLHttpRequest();
+	// }else{
+	// 	var oAjax = new ActiveXObject("Microsoft.XMLHTTP");	//兼容ie6
+	// }
+	// // alert(oAjax);
+	// // console.log(oAjax.readyState);	//0
+	// oAjax.open("GET", "first-ajax.txt", true);
+	// // console.log(oAjax.readyState);	//1
+	// oAjax.send();
+	// oAjax.onreadystatechange = function(){
+	// 	if(oAjax.readyState == 4){	//请求完成
+	// 		// console.log('成功!');
+	// 		if(oAjax.status == 200){	//请求成功
+	// 			console.log(oAjax.responseText);
+	// 		}else{
+	// 			console.log(oAjax.status);
+	// 		}
+	// 	}
+	// }
+
+	// 使用封装好的ajax函数
+	newAjax('first-ajax.txt', function(str){
+		console.log(str);
+	}, function(status){
+		console.log('请求失败的状态码是：' + status);
+	})
+}
+	
+</script>
+</body>
+</html>
