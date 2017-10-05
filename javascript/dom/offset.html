@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>offset</title>
+    <script type="text/javascript" src="offset.js"></script>
     <style>
 #div1{
     width: 500px;
@@ -39,46 +40,6 @@
         <div id="div3"></div>
     </div>
 </div>
-<script>
-odiv1 = document.getElementById("div1");
-odiv2 = document.getElementById("div2");
-odiv3 = document.getElementById("div3");
 
-// function aa(){ //方法一
-//     var elem = odiv3;
-//     var ol = 0;
-//     while(elem){
-//         ol += elem.offsetLeft;
-//         elem = elem.parentNode;
-//         if(elem.nodeName == "BODY"){
-//             break;
-//         }
-//     }
-//     console.log(ol);
-// }
-
-//  function aa(){ //方法二
-//      var elem = odiv3;
-//      var ol = 0;
-//      while(elem){
-//          ol += elem.offsetLeft;
-//          elem = elem.offsetParent; //到body之后就停止，因为body相当于最后一个有定位的元素
-//      }
-//      console.log(ol);
-//  }
-
-
-  function aa(){ //方法三：如果有边框
-      var elem = odiv3;
-      var ol = 0;
-      while(elem){
-          ol += elem.offsetLeft + parseInt(getComputedStyle(elem).borderLeftWidth);
-          elem = elem.offsetParent; 
- }
-      console.log(ol);
-  }
-// aa();
-console.log(odiv3.getBoundingClientRect().left);
-</script>
 </body>
 </html>
